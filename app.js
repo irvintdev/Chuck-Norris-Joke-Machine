@@ -2,6 +2,7 @@
 
 async function getAndDisplayJoke() {
     const url = "https://api.chucknorris.io/jokes/random"
+    document.getElementById('Joke').textContent = '';
     try {
         const response = await fetch(url);
         const json = await response.json();
@@ -15,5 +16,7 @@ async function getAndDisplayJoke() {
 
 
 
-const button = document.getElementById('btn').addEventListener('click' , );
+const button = document.getElementById('btn');
+
+button.addEventListener('click', getAndDisplayJoke); 
 
