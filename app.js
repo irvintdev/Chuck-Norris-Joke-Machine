@@ -14,6 +14,21 @@ async function getAndDisplayJoke() {
     }
 }
 
+let array = '';
+
+async function fetchCategories() {
+    const url = "https://api.chucknorris.io/jokes/categories"
+    
+    try {
+        const response = await fetch(url);
+        const json = await response.json();
+        const data = await json;
+        array = data;
+        console.log(data);
+    } catch (error) {
+        console.error(error.message);
+    }
+}
 
 
 const button = document.getElementById('btn');
