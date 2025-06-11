@@ -1,5 +1,5 @@
 
-
+// This function retrieves a joke from the Chuck Norries API
 async function getAndDisplayJoke() {
     const url = "https://api.chucknorris.io/jokes/random"
     
@@ -16,6 +16,7 @@ async function getAndDisplayJoke() {
 
 let categories = '';
 
+// This function retrieves categories from the Chuck Norris API
 async function fetchCategories() {
     const url = "https://api.chucknorris.io/jokes/categories"
     
@@ -29,6 +30,8 @@ async function fetchCategories() {
         console.error(error.message);
     }
 }
+
+
 
 
 const button = document.getElementById('btn');
