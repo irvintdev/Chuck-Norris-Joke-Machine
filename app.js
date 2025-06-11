@@ -1,3 +1,7 @@
+let categories = '';
+const button = document.getElementById('btn');
+const ul = document.getElementById('categories');
+
 
 // This function retrieves a joke from the Chuck Norries API
 async function getAndDisplayJoke() {
@@ -14,9 +18,9 @@ async function getAndDisplayJoke() {
     }
 }
 
-let categories = '';
 
-// This function retrieves categories from the Chuck Norris API
+
+// This function retrieves categories from the Chuck Norris API & adds them to category list
 async function fetchCategories() {
     const url = "https://api.chucknorris.io/jokes/categories"
     
@@ -25,6 +29,11 @@ async function fetchCategories() {
         const json = await response.json();
         const data = await json;
         categories = data;
+        categories.forEach(item => {
+            let li = document.createElement('li');
+            li.textContent = item;
+            ul.appendChild(li);
+        })
         console.log(data);
     } catch (error) {
         console.error(error.message);
@@ -34,7 +43,9 @@ async function fetchCategories() {
 
 
 
-const button = document.getElementById('btn');
+
 
 button.addEventListener('click', getAndDisplayJoke); 
+fetchCategories();
+
 
