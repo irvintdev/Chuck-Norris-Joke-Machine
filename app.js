@@ -14,7 +14,7 @@ async function getAndDisplayJoke() {
     }
 }
 
-let array = '';
+let categories = '';
 
 async function fetchCategories() {
     const url = "https://api.chucknorris.io/jokes/categories"
@@ -23,7 +23,7 @@ async function fetchCategories() {
         const response = await fetch(url);
         const json = await response.json();
         const data = await json;
-        array = data;
+        categories = data;
         console.log(data);
     } catch (error) {
         console.error(error.message);
