@@ -4,6 +4,7 @@ const ul = document.getElementById('categories');
 let selectedCategory = '';
 
 
+
 // This function retrieves a joke from the Chuck Norries API
 async function getAndDisplayJoke() {
     
@@ -49,12 +50,23 @@ async function fetchCategories() {
 
 //This funtion allows you to click and select a list item
 ul.addEventListener('click' , function(event) {
+    clearSelection();
+
     if (event.target.tagName === 'LI') {
+        event.target.className = 'selected';
         selectedCategory = event.target.textContent;
         console.log(selectedCategory);
     }
 });
 
+// This function will remove the 'selected' class name from all list items
+
+function clearSelection() {
+    const li = document.querySelectorAll('LI');
+    li.forEach( function(item) {
+        item.className = '';
+    })
+}
 
 
 fetchCategories();
