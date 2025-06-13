@@ -20,7 +20,6 @@ async function getAndDisplayJoke() {
         const json = await response.json();
         const data = await json.value;
         document.getElementById('Joke').textContent = data;
-        console.log(data);
     } catch (error) {
         console.error(error.message);
     }
@@ -42,7 +41,6 @@ async function fetchCategories() {
             li.textContent = item;
             ul.appendChild(li);
         })
-        console.log(data);
     } catch (error) {
         console.error(error.message);
     }
@@ -55,7 +53,6 @@ ul.addEventListener('click' , function(event) {
     if (event.target.tagName === 'LI') {
         event.target.className = 'selected';
         selectedCategory = event.target.textContent;
-        console.log(selectedCategory);
     }
 });
 
